@@ -59,7 +59,7 @@ const Worlde: React.FC<ComponentProps> = ({ originalWord, changeWord }) => {
         chances={chances}
       />
       <h3>Total Won: {gameStats.won}</h3>
-      <h3>Total lost: {gameStats.lost}</h3>
+     
       <p>
         Actual Word: {originalWord} | Guess word :{currentGuessWord}
       </p>
