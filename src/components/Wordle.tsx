@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import useWordleHook from "./hooks/useWordleHook";
 import Grid from "./Grid";
 
@@ -36,21 +36,20 @@ const Worlde: React.FC<ComponentProps> = ({ originalWord, changeWord }) => {
       window.removeEventListener("keyup", handleKeyUp as any);
     };
   }, [handleKeyUp, correct, chances]);
-  console.log(guessList,"jedn")
+  console.log(guessList, "jedn");
 
   return (
     <div>
-    {currentGuessWord===originalWord && <h2>You guessed it right!!</h2> }
-    {guessList.length > 5 && !guessList.includes(originalWord) && <h2>Try again!!</h2> }
+      {currentGuessWord === originalWord && <h2>You guessed it right!!</h2>}
+      {guessList.length > 5 && !guessList.includes(originalWord) && (
+        <h2>Try again!!</h2>
+      )}
       <Grid
         currentGuessWord={currentGuessWord}
         allGuessInfo={allGuessesInfo}
         chances={chances}
       />
-      <h3>
-      Total Won: {gameStats.won} 
-      
-      </h3>
+      <h3>Total Won: {gameStats.won}</h3>
       <p>
         Actual Word: {originalWord} | Guess word :{currentGuessWord}
       </p>

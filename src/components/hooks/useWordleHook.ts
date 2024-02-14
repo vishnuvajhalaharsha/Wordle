@@ -74,7 +74,6 @@ const useWordleHook = (solution: string, changeWord: () => void) => {
       let updatedGuesses = [...prevList, currentGuessWord];
       return updatedGuesses;
     });
-  
 
     setChances((prevChance) => {
       return prevChance + 1;
@@ -137,7 +136,6 @@ const useWordleHook = (solution: string, changeWord: () => void) => {
     gameStats,
     reset,
     setGameStats,
-    
   };
 };
 

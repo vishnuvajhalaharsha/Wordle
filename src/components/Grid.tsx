@@ -5,20 +5,19 @@ interface ComponentProps {
   currentGuessWord: string;
   chances: number;
   allGuessInfo: any[];
-  
 }
 
 const Grid: React.FC<ComponentProps> = ({
   allGuessInfo,
   chances,
-  currentGuessWord
+  currentGuessWord,
 }) => {
   return (
     <div>
       {allGuessInfo.map((guess, index) => {
         if (chances === index) {
-            return <Row key={index} currentGuessWord={currentGuessWord} />
-          }
+          return <Row key={index} currentGuessWord={currentGuessWord} />;
+        }
         return <Row key={index} guess={guess} />;
       })}
     </div>
