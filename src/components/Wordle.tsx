@@ -40,7 +40,7 @@ const Worlde: React.FC<ComponentProps> = ({ originalWord, changeWord }) => {
 
   return (
     <div>
-      {currentGuessWord === originalWord && <h2>You guessed it right!!</h2>}
+     
       {guessList.length > 5 && !guessList.includes(originalWord) && (
         <h2>Try again!!</h2>
       )}

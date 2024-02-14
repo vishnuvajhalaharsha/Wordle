@@ -51,14 +51,15 @@ const useWordleHook = (solution: string, changeWord: () => void) => {
 
   const addToGuesses = (guessWordObj: GuessWord[]) => {
     if (currentGuessWord === solution) {
+        setGameStats((prevObj) => {
+            return {
+              ...prevObj,
+              won: prevObj.won + 1,
+              played: prevObj.won + prevObj.lost + 1,
+            };
+          });
       setCorrectWord(true);
-      setGameStats((prevObj) => {
-        return {
-          ...prevObj,
-          won: prevObj.won + 1,
-          played: prevObj.won + prevObj.lost + 1,
-        };
-      });
+    
 
       console.log("you guessed the word!");
 
