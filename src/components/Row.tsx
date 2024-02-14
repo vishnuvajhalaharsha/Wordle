@@ -22,7 +22,7 @@ const Row: React.FC<ComponentProps> = ({ guess, currentGuessWord }) => {
     return (
       <div className="row current">
         {guessingLetters.map((letter, i) => (
-          <div key={i} className="filled">
+          <div key={i} className="filled" >
             {letter}
           </div>
         ))}

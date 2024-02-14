@@ -23,7 +23,9 @@ const useWordleHook = (solution: string, changeWord: () => void) => {
     played: 0,
     winStreak: 0,
   });
+
   const [reset, setReset] = useState(false);
+
 
   const maxLength = 5;
 
@@ -82,8 +84,13 @@ const useWordleHook = (solution: string, changeWord: () => void) => {
 
     setCurrentGuessWord("");
   };
+
+
+
   const handleKeyUp = (event: React.KeyboardEvent<HTMLInputElement>) => {
     const inputValue = event.key.toUpperCase();
+    console.log(currentGuessWord)
+    debugger
 
     if (event.key === "Backspace") {
       setCurrentGuessWord((prev) => {
@@ -91,9 +98,13 @@ const useWordleHook = (solution: string, changeWord: () => void) => {
       });
       return;
     }
-
+   
     if (event.key === "Enter") {
+        debugger
+        console.log(currentGuessWord)
+       
       if (chances > 5) {
+       
         console.log("your chances are over!!");
         return;
       }
@@ -104,11 +115,13 @@ const useWordleHook = (solution: string, changeWord: () => void) => {
         return;
       }
       let guessWordObj = convertGuessWord();
+      debugger
       addToGuesses(guessWordObj);
     }
 
     if (/^[A-Za-z]$/.test(inputValue)) {
       if (currentGuessWord.length < maxLength) {
+        debugger
         setCurrentGuessWord((prev) => {
           return prev + inputValue;
         });
@@ -117,15 +130,18 @@ const useWordleHook = (solution: string, changeWord: () => void) => {
   };
 
   const resetGame = () => {
-    setReset(true);
-    setCurrentGuessWord("");
     setAllGuessesInfo([...Array(6)]);
     setChances(0);
     setGuessesList([]);
     setCorrectWord(false);
     changeWord();
+    setCurrentGuessWord("");
+    setReset(true);
+    
   };
-
+  const startGame=()=>{
+  setReset(false)
+  }
   return {
     currentGuessWord,
     handleKeyUp,
@@ -137,6 +153,7 @@ const useWordleHook = (solution: string, changeWord: () => void) => {
     gameStats,
     reset,
     setGameStats,
+    startGame,
   };
 };
 
