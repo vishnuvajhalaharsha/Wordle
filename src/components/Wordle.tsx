@@ -24,17 +24,17 @@ const Worlde: React.FC<ComponentProps> = ({ originalWord, changeWord }) => {
   useEffect(() => {
     window.addEventListener("keyup", handleKeyUp as any);
     console.log(currentGuessWord);
-    debugger;
+   
     if (correct) {
       console.log("game over, guessed it right!!!");
       console.log(currentGuessWord);
-      debugger;
+    
       window.removeEventListener("keyup", handleKeyUp as any);
     }
 
     if (chances > 5) {
       console.log(currentGuessWord);
-      debugger;
+     
       window.removeEventListener("keyup", handleKeyUp as any);
     }
     if(reset){
@@ -45,7 +45,7 @@ const Worlde: React.FC<ComponentProps> = ({ originalWord, changeWord }) => {
       window.removeEventListener("keyup", handleKeyUp as any);
     };
   }, [handleKeyUp, correct, chances, reset]);
-  console.log(guessList, "jedn");
+  
 
   return (
     <div>

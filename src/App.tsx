@@ -2,6 +2,7 @@ import  { useState } from "react";
 import Worlde from "./components/Wordle";
 import { useQuery } from "@tanstack/react-query";
 
+
 function App() {
   const [wordIndex, setWordIndex] = useState<number>(Math.floor(Math.random() * 339));
   const { isLoading, error, data } = useQuery<string[]>({
@@ -10,13 +11,14 @@ function App() {
       fetch("http://localhost:3000/api/fe/wordle-words").then((res) =>
         res.json()
       ),
+
   });
 
   if (isLoading) return <div>Loading...</div>;
 
-  if (error) return <div>An error has occurred: {error.message}</div>;
+  if (error) return <div>An error has occurred! </div>;
 
-  const pickRandomWord = (): string => {
+ const pickRandomWord = (): string => {
     if (data && wordIndex !== null) {
       return data[wordIndex];
     }

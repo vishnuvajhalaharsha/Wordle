@@ -26,7 +26,6 @@ const useWordleHook = (solution: string, changeWord: () => void) => {
 
   const [reset, setReset] = useState(false);
 
-
   const maxLength = 5;
 
   const convertGuessWord = () => {
@@ -53,15 +52,14 @@ const useWordleHook = (solution: string, changeWord: () => void) => {
 
   const addToGuesses = (guessWordObj: GuessWord[]) => {
     if (currentGuessWord === solution) {
-        setGameStats((prevObj) => {
-            return {
-              ...prevObj,
-              won: prevObj.won + 1,
-              played: prevObj.won + prevObj.lost + 1,
-            };
-          });
+      setGameStats((prevObj) => {
+        return {
+          ...prevObj,
+          won: prevObj.won + 1,
+          played: prevObj.won + prevObj.lost + 1,
+        };
+      });
       setCorrectWord(true);
-    
 
       console.log("you guessed the word!");
 
@@ -85,12 +83,8 @@ const useWordleHook = (solution: string, changeWord: () => void) => {
     setCurrentGuessWord("");
   };
 
-
-
   const handleKeyUp = (event: React.KeyboardEvent<HTMLInputElement>) => {
     const inputValue = event.key.toUpperCase();
-    console.log(currentGuessWord)
-    debugger
 
     if (event.key === "Backspace") {
       setCurrentGuessWord((prev) => {
@@ -98,30 +92,27 @@ const useWordleHook = (solution: string, changeWord: () => void) => {
       });
       return;
     }
-   
+
     if (event.key === "Enter") {
-        debugger
-        console.log(currentGuessWord)
-       
+      console.log(currentGuessWord);
+
       if (chances > 5) {
-       
         console.log("your chances are over!!");
         return;
       }
 
       if (currentGuessWord.length !== 5) {
-        console.log(allGuessesInfo, "allguess");
         console.log("too short");
         return;
       }
       let guessWordObj = convertGuessWord();
-      debugger
+      debugger;
       addToGuesses(guessWordObj);
     }
 
     if (/^[A-Za-z]$/.test(inputValue)) {
       if (currentGuessWord.length < maxLength) {
-        debugger
+        debugger;
         setCurrentGuessWord((prev) => {
           return prev + inputValue;
         });
@@ -137,11 +128,10 @@ const useWordleHook = (solution: string, changeWord: () => void) => {
     changeWord();
     setCurrentGuessWord("");
     setReset(true);
-    
   };
-  const startGame=()=>{
-  setReset(false)
-  }
+  const startGame = () => {
+    setReset(false);
+  };
   return {
     currentGuessWord,
     handleKeyUp,
