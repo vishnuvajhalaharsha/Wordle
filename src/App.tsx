@@ -16,7 +16,7 @@ function App() {
   });
 
   if (isLoading) {
-    return <> Loading</>;
+    return <>Loading</>;
   }
 
   const pickRandomWord = (): string => {
@@ -50,7 +50,8 @@ function App() {
 
   return (
     <div>
-      <Worlde originalWord={pickRandomWord()} changeWord={changeWord} />
+      {data &&  <Worlde originalWord={pickRandomWord()} changeWord={changeWord} />}
+     
     </div>
   );
 }
