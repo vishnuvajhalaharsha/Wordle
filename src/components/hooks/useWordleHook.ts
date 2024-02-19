@@ -59,9 +59,7 @@ const useWordleHook = (solution: string, changeWord: () => void) => {
           played: prevObj.won + prevObj.lost + 1,
         };
       });
-      
-     
-      
+
       setCorrectWord(true);
 
       console.log("you guessed the word!");
@@ -97,10 +95,10 @@ const useWordleHook = (solution: string, changeWord: () => void) => {
     }
 
     if (event.key === "Enter") {
-      console.log(currentGuessWord);
+      console.log(chances);
 
       if (chances > 5) {
-        debugger
+        
         console.log("your chances are over!!");
         return;
       }
@@ -116,7 +114,6 @@ const useWordleHook = (solution: string, changeWord: () => void) => {
 
     if (/^[A-Za-z]$/.test(inputValue)) {
       if (currentGuessWord.length < maxLength) {
-      
         setCurrentGuessWord((prev) => {
           return prev + inputValue;
         });
@@ -135,7 +132,6 @@ const useWordleHook = (solution: string, changeWord: () => void) => {
   };
   const startGame = () => {
     setReset(false);
-   
   };
   return {
     currentGuessWord,
