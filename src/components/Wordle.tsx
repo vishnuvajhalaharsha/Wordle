@@ -17,6 +17,7 @@ const Worlde: React.FC<ComponentProps> = ({ originalWord, changeWord }) => {
     correct,
     resetGame,
     startGame,
+    setGameStats,
     reset,
     guessList,
   } = useWordleHook(originalWord, changeWord);
@@ -27,6 +28,7 @@ const Worlde: React.FC<ComponentProps> = ({ originalWord, changeWord }) => {
    
     if (correct) {
       console.log("game over, guessed it right!!!");
+   
       console.log(currentGuessWord);
     
       window.removeEventListener("keyup", handleKeyUp as any);
@@ -46,11 +48,13 @@ const Worlde: React.FC<ComponentProps> = ({ originalWord, changeWord }) => {
       window.removeEventListener("keyup", handleKeyUp as any);
     };
   }, [handleKeyUp, correct, chances, reset]);
+
+  
   
 
   return (
     <div>
-        {(currentGuessWord.length===originalWord.length && currentGuessWord===originalWord )&&
+        {(correct )&&
         <h3>you guessed it right!!</h3>
         }
       {guessList.length > 5 && !guessList.includes(originalWord) && (

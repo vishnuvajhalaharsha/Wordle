@@ -59,6 +59,9 @@ const useWordleHook = (solution: string, changeWord: () => void) => {
           played: prevObj.won + prevObj.lost + 1,
         };
       });
+      
+     
+      
       setCorrectWord(true);
 
       console.log("you guessed the word!");
@@ -107,13 +110,13 @@ const useWordleHook = (solution: string, changeWord: () => void) => {
         return;
       }
       let guessWordObj = convertGuessWord();
-      debugger;
+
       addToGuesses(guessWordObj);
     }
 
     if (/^[A-Za-z]$/.test(inputValue)) {
       if (currentGuessWord.length < maxLength) {
-        debugger;
+      
         setCurrentGuessWord((prev) => {
           return prev + inputValue;
         });
