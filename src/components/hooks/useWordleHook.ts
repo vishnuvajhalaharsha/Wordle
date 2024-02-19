@@ -97,6 +97,7 @@ const useWordleHook = (solution: string, changeWord: () => void) => {
       console.log(currentGuessWord);
 
       if (chances > 5) {
+        debugger
         console.log("your chances are over!!");
         return;
       }
@@ -131,6 +132,7 @@ const useWordleHook = (solution: string, changeWord: () => void) => {
   };
   const startGame = () => {
     setReset(false);
+   
   };
   return {
     currentGuessWord,

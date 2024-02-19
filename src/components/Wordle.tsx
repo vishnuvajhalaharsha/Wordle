@@ -33,6 +33,7 @@ const Worlde: React.FC<ComponentProps> = ({ originalWord, changeWord }) => {
     }
 
     if (chances > 5) {
+      debugger
       console.log(currentGuessWord);
      
       window.removeEventListener("keyup", handleKeyUp as any);
@@ -63,12 +64,14 @@ const Worlde: React.FC<ComponentProps> = ({ originalWord, changeWord }) => {
       />
       <h3>Total Won: {gameStats.won}</h3>
      
+     
       <p>
         Actual Word: {originalWord} | Guess word :{currentGuessWord}
       </p>
+    
 
       <button onClick={resetGame} > Reset</button>
-      <button onClick={startGame}> Start Game</button>
+      <button onClick={startGame}> Start New Game</button>
     </div>
   );
 };
